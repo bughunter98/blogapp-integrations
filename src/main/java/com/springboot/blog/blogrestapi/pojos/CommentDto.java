@@ -1,9 +1,18 @@
 package com.springboot.blog.blogrestapi.pojos;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+
 public class CommentDto {
     private long id;
+    @NotEmpty(message = "User Name should not be null or empty")
     private String userName;
+    @Email
+    @NotEmpty(message = "email cannot be empty")
     private String emailId;
+    @NotEmpty
+    @Size(min = 10 , message = "comment should have minimum 10 characters")
     private String body;
 
     public long getId() {
