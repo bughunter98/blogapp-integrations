@@ -11,21 +11,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.springboot.blog.blogrestapi</groupId>
+    <groupId>com.springboot.blogapp</groupId>
     <artifactId>blog-integrations</artifactId>
-    <version>0.0.1</version>
-    <packaging>jar</packaging>
+    <version>1.0.0</version>
 
     <name>blog-integrations</name>
     <description>This is a light-weight jar used where all the pojos required for my project are stored</description>
-    <url>https://github.com/bughunter98/blogapp-integrations</url>
-
-    <licenses>
-        <license>
-            <name>Apache License 2.0</name>
-            <url>https://github.com/bughunter98/blogapp-integrations/blob/release-1.0.0/LICENSE</url>
-        </license>
-    </licenses>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -35,6 +26,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/bughunter98/blogapp-integrations</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -176,23 +174,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
-                <configuration>
-                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
@@ -207,13 +188,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub bughunter Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/bughunter98/blog-integrations</url>
-        </repository>
-    </distributionManagement>
 
 </project>
