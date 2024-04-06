@@ -215,8 +215,8 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <keyname>ed25519</keyname>
-                            <passphraseServerId>ed25519</passphraseServerId>
+                            <keyname>0x4BCE243A</keyname>
+                            <passphraseServerId>0x4BCE243A</passphraseServerId>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
