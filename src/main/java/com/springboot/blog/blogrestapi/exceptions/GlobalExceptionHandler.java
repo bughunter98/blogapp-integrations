@@ -6,7 +6,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -31,17 +30,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 exception.getMessage(), webRequest.getSessionId(), webRequest.getDescription(false));
         //we can use httpServletRequest also to get the url.
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(value = AccessDeniedException.class)
-    public ResponseEntity<ErrorDetails> handleAccessDeniedException
-            (AccessDeniedException exception, WebRequest webRequest/*, HttpServletRequest httpServletRequest*/) {
-        /*One can get request URI and client information from WebRequest using webRequest. getDescription(true).
-        true will show user's information such as client id and false will just print URI*/
-        ErrorDetails errorDetails = new ErrorDetails(new Date(),
-                exception.getMessage(), webRequest.getSessionId(), webRequest.getDescription(false));
-        //we can use httpServletRequest also to get the url.
-        return new ResponseEntity<>(errorDetails, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(value = BlogAPIException.class)
