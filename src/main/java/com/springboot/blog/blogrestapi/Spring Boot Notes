@@ -1,0 +1,14 @@
+-----------------Spring Boot--------------
+1. If a microservice A is serving two other microservices B nd C then declaring dependencies
+in A would automatically add dependencies in B and C.
+-----------------Spring Security--------------
+1. By default spring security 6 enables form based and HTTP based authentication.
+
+*****For spring security authentication :
+---> for loading a user object from the database and providing it to spring security for preforming authentication we
+implement spring security provided UserDetailsService Interface.
+
+----> from spring 5.2 onwards spring security will automatically provide the userDetailsService and passwordEncoder
+to Authentication Manager.
+
+---> JWT ---> https://www.tutorialspoint.com/spring_security/spring_security_with_jwt.htm

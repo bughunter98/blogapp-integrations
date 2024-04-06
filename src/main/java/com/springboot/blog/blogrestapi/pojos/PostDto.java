@@ -1,12 +1,18 @@
 package com.springboot.blog.blogrestapi.pojos;
 
 
-
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 public class PostDto {
     private long id;
+    @NotEmpty // title should not be empty
+    @Size(min = 3 , message = "Post Title should have atleast 3 characters")
     private String title;
+    @NotEmpty
+    @Size(min = 10 , message = "Post Description should atleast have 10 characters")
     private String description;
+    @NotEmpty(message = "must not be empty")
     private String content;
 
     public long getId() {
