@@ -11,9 +11,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>io.github.bughunter98</groupId>
+    <groupId>com.blogapp</groupId>
     <artifactId>blog-integrations</artifactId>
     <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <name>blog-integrations</name>
     <description>This is a light-weight jar used where all the pojos required for my project are stored</description>
@@ -32,8 +33,6 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <central-publishing-maven-plugin.version>0.3.0</central-publishing-maven-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
     </properties>
 
@@ -115,16 +114,6 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <groupId>org.sonatype.central</groupId>
-                <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>${central-publishing-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <publishingServerId>central</publishingServerId>
-                    <tokenAuth>true</tokenAuth>
-                </configuration>
-            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -203,39 +192,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <!--<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <keyname>0x4BCE243A</keyname>
-                            <passphraseServerId>0x4BCE243A</passphraseServerId>
-                            <gpgArguments>
-                                <arg>&#45;&#45;pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-            <!--<plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -253,37 +209,11 @@
     </build>
 
     <distributionManagement>
-        <!--<snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>-->
-
         <repository>
             <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/bughunter98/blog-integrations/tree/1.0.0</url>
+            <name>GitHub bughunter Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/bughunter98/blog-integrations</url>
         </repository>
     </distributionManagement>
-
-    <!--<developers>
-        <developer>
-            <name>bug hunter98</name>
-            <email>saitejathota98@gmail.com</email>
-            <organization>io.github.bughunter98</organization>
-            <organizationUrl>https://github.com/bughunter98</organizationUrl>
-        </developer>
-    </developers>-->
-
-   <!-- <scm>
-        <connection>scm:git:git://github.com/bughunter98/blogapp-integrations.git</connection>
-        <developerConnection>scm:git:ssh://github.com:bughunter98/blogapp-integrations.git</developerConnection>
-        <url>https://github.com/bughunter98/blogapp-integrations/tree/1.0.0</url>
-    </scm>-->
 
 </project>
