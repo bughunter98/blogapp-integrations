@@ -33,7 +33,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <central-publishing-maven-plugin.version>0.3.0</central-publishing-maven-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
     </properties>
 
@@ -215,7 +215,8 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <keyname>0xA9FC72AC</keyname>
+                            <keyname>ed25519</keyname>
+                            <passphraseServerId>ed25519</passphraseServerId>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
@@ -224,7 +225,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+           <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>${nexus-staging-maven-plugin.version}</version>
@@ -253,12 +254,14 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
     </distributionManagement>
 
@@ -274,7 +277,7 @@
     <scm>
         <connection>scm:git:git://github.com/bughunter98/blogapp-integrations.git</connection>
         <developerConnection>scm:git:ssh://github.com:bughunter98/blogapp-integrations.git</developerConnection>
-        <url>https://github.com/bughunter98/blogapp-integrations</url>
+        <url>https://github.com/bughunter98/blogapp-integrations/tree/1.0.0</url>
     </scm>
 
 </project>
