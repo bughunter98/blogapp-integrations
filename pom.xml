@@ -115,7 +115,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
                 <version>${central-publishing-maven-plugin.version}</version>
@@ -124,7 +124,7 @@
                     <publishingServerId>central</publishingServerId>
                     <tokenAuth>true</tokenAuth>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -203,7 +203,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>3.1.0</version>
@@ -218,14 +218,14 @@
                             <keyname>0x4BCE243A</keyname>
                             <passphraseServerId>0x4BCE243A</passphraseServerId>
                             <gpgArguments>
-                                <arg>--pinentry-mode</arg>
+                                <arg>&#45;&#45;pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-           <plugin>
+            </plugin>-->
+            <!--<plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>${nexus-staging-maven-plugin.version}</version>
@@ -235,7 +235,7 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -253,7 +253,7 @@
     </build>
 
     <distributionManagement>
-        <snapshotRepository>
+        <!--<snapshotRepository>
             <id>sonatype-nexus-snapshots</id>
             <name>Sonatype Nexus Snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -262,22 +262,28 @@
             <id>sonatype-nexus-staging</id>
             <name>Nexus Release Repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>-->
+
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/bughunter98/blog-integrations/tree/1.0.0</url>
         </repository>
     </distributionManagement>
 
-    <developers>
+    <!--<developers>
         <developer>
             <name>bug hunter98</name>
             <email>saitejathota98@gmail.com</email>
             <organization>io.github.bughunter98</organization>
             <organizationUrl>https://github.com/bughunter98</organizationUrl>
         </developer>
-    </developers>
+    </developers>-->
 
-    <scm>
+   <!-- <scm>
         <connection>scm:git:git://github.com/bughunter98/blogapp-integrations.git</connection>
         <developerConnection>scm:git:ssh://github.com:bughunter98/blogapp-integrations.git</developerConnection>
         <url>https://github.com/bughunter98/blogapp-integrations/tree/1.0.0</url>
-    </scm>
+    </scm>-->
 
 </project>
